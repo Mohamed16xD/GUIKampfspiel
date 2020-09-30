@@ -10,7 +10,7 @@ public class MainView extends JFrame {
 
     // Referenzen
     private MainController mainController;
-    private JPanel startPanel, fightPanel, endPanel;
+    private JPanel startPanel, fightPanel, adventurePanel;
 
     /**
      * Konstruktor
@@ -20,6 +20,8 @@ public class MainView extends JFrame {
 
         this.mainController = mainController;
         this.startPanel = new StartPanelHandler(this).getPanel();
+        this.fightPanel = new FightPanelHandler(mainController, this).getPanel();
+        this.adventurePanel = new AdventurePanelHandler(this).getPanel();
 
         this.getContentPane().add(startPanel);
 
@@ -36,8 +38,6 @@ public class MainView extends JFrame {
 
         this.getContentPane().removeAll();
         this.getContentPane().invalidate();
-
-        this.fightPanel = new FightPanelHandler(mainController, this).getPanel();
 
         this.getContentPane().add(fightPanel);
         this.getContentPane().revalidate();
