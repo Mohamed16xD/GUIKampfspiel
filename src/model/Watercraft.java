@@ -1,6 +1,7 @@
 package model;
 
 import control.MainController;
+import javafx.scene.paint.Stop;
 
 public abstract class Watercraft extends OceanObject {
 
@@ -9,17 +10,25 @@ public abstract class Watercraft extends OceanObject {
 
     public Watercraft(String n){
         super(n);
+        currentXP = 0;
+        fleePower = 2;
+        level = 1;
     }
     public int getCurrentXP(){
-        return currentXP;
+       return currentXP;
+
     }
 
     public int getFleePower() {
         return fleePower;
     }
     public void gainXP(int amount){
-
+        currentXP = amount + currentXP;
+        if (currentXP > 5){
+            gainLevel();
+        }
     }
 
     public abstract void gainLevel();
+
 }
