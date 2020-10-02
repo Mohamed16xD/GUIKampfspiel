@@ -17,7 +17,9 @@ public abstract class Watercraft extends OceanObject {
     public int getFleePower() {
         return fleePower;
     }
-    public void gainXP(int amount){ }
+    public void gainXP(int amount){
+
+    }
 
     public abstract void gainLevel();
 }
