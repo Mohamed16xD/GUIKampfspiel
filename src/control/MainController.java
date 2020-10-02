@@ -1,5 +1,5 @@
 package control;
-
+import model.*;
 
 public class MainController {
 
@@ -12,11 +12,11 @@ public class MainController {
     public void createNewWaterCraft(String name, boolean boat){
         if (boat == true) {
 
-            player = new Boat();
+            player = new Boat(name);
 
         }else{
 
-            player = new Submarine();
+            player = new Submarine(name);
 
            }
 
@@ -34,6 +34,7 @@ public class MainController {
         s[4] = String.valueOf(player.getCurrentXP());
         s[5] = String.valueOf(player.getLevel());
 
+        return s;
     }
 
     public String createNewMonster(int level){
