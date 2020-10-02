@@ -14,6 +14,7 @@ public class MainView extends JFrame {
 
     /**
      * Konstruktor
+     *
      * @param mainController Ein Referenz auf ein Controller-Objekt.
      */
     public MainView(MainController mainController) {
@@ -25,26 +26,29 @@ public class MainView extends JFrame {
 
         this.getContentPane().add(startPanel);
 
-        this.setLocation(50,50);
-        this.setSize(1000,750);
+        this.setLocation(50, 50);
+        this.setSize(1000, 750);
         this.setResizable(false);
         this.setTitle("Quit-Game-Template");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
 
-    public void play(String name){
-        //mainController.createPlayer(name);
+    public void startGame(String name, boolean isSubmarine) {
+        //mainController.createPlayer(name, isSubmarine);
+
 
         this.getContentPane().removeAll();
         this.getContentPane().invalidate();
 
-        this.getContentPane().add(fightPanel);
+        this.getContentPane().add(fightPanel); //fightPanel wird aufgerufen
         this.getContentPane().revalidate();
     }
 
-    public void end(){
+
+    public void end (){
 
     }
+
 }
 

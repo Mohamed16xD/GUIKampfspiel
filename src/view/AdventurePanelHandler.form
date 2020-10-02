@@ -8,7 +8,7 @@
     <properties/>
     <border type="none"/>
     <children>
-      <component id="e3a30" class="javax.swing.JLabel">
+      <component id="e3a30" class="javax.swing.JLabel" binding="adventurePanel">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -16,7 +16,7 @@
           <text value="Label"/>
         </properties>
       </component>
-      <component id="24a60" class="javax.swing.JButton" binding="button1" default-binding="true">
+      <component id="24a60" class="javax.swing.JButton" binding="buttonNorth">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -24,7 +24,7 @@
           <text value="Button"/>
         </properties>
       </component>
-      <component id="526a1" class="javax.swing.JButton" binding="button2" default-binding="true">
+      <component id="526a1" class="javax.swing.JButton" binding="buttonSouth">
         <constraints>
           <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -32,7 +32,7 @@
           <text value="Button"/>
         </properties>
       </component>
-      <component id="475b5" class="javax.swing.JButton" binding="button3" default-binding="true">
+      <component id="475b5" class="javax.swing.JButton" binding="buttonWest">
         <constraints>
           <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -40,7 +40,7 @@
           <text value="Button"/>
         </properties>
       </component>
-      <component id="d97c9" class="javax.swing.JButton" binding="button4" default-binding="true">
+      <component id="d97c9" class="javax.swing.JButton" binding="buttonEast">
         <constraints>
           <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
