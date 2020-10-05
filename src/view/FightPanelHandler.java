@@ -27,6 +27,7 @@ public class FightPanelHandler {
         this.mainController = mainController;
         this.mainView = mainView;
 
+        fightInfo.setText("Oh mein Gott, ein Monster des Ozeans! \nKämpfe, oder Fliehe!");
         updateGUI();
 
     }
@@ -58,31 +59,51 @@ public class FightPanelHandler {
 
     private void fight(){
         //TODO Entsprechende Methode vom MainController aufrufen und Ergebnisse in der GUi darstellen. Anschließend die Stats der Kämfper in der GUI aktualisieren.
-        updateGUI();
+        String result = mainController.fight();
+        if(result.equals("Du hast verloren!")){
+            fightInfo.setText(fightInfo.getText() + "\n");
+            fightInfo.setText(fightInfo.getText() + result);
+            endPanel();
+        }else{
+            fightInfo.setText(fightInfo.getText() + "\n");
+            fightInfo.setText(fightInfo.getText() + result);
+            updateGUI();
+        }
     }
 
     private void flee(){
         //TODO Entsprechende Methode vom MainController aufrufen und Ergebnisse in der GUi darstellen. Anschließend die Stats der Kämfper in der GUI aktualisieren.
-        updateGUI();
+        String result = mainController.fight();
+        if(result.equals("Du hast verloren!")){
+            fightInfo.setText(fightInfo.getText() + "\n");
+            fightInfo.setText(fightInfo.getText() + result);
+            endPanel();
+        }else{
+            fightInfo.setText(fightInfo.getText() + "\n");
+            fightInfo.setText(fightInfo.getText() + result);
+            updateGUI();
+        }
     }
 
     private void updateGUI(){
-        //TODO Statistiken darstellen aktualisieren.
+        //TODO Statistiken darstellen und aktualisieren.
         String[] monsterStats = mainController.getMonsterInfos();
         monsterName.setText(monsterStats[0]);
+        monsterHealth.setText(monsterStats[3]);
+        monsterLevel.setText(monsterStats[4]);
+        monsterPower.setText(monsterStats[1]);
         String[] playerStats = mainController.getWatercraftInfos();
         playerName.setText(playerStats[0]);
-
-
-        //TODO Falls Lebenspunkte bei Monster oder Spieler auf 0, dann muss die Methode endPanel() aufgerufen werden.
-        endPanel();
+        playerHealth.setText(playerStats[3]);
+        playerLevel.setText(playerStats[4]);
+        playerPower.setText(playerStats[1]);
     }
 
     /**
      * Methode wird beim Starten eines Kampfes aufgerufen.
      * Die Knöpfe erhalten den passenden Zustand, die Labels werden aktualisiert.
      */
-    private void startPanel(){
+    public void startPanel(){
         fightButton.setEnabled(true);
         fleeButton.setEnabled(true);
         backToAdventure.setVisible(false);
@@ -98,6 +119,5 @@ public class FightPanelHandler {
         fleeButton.setEnabled(false);
         backToAdventure.setVisible(true);
         updateGUI();
-        //TODO Irgendwie muss die Information, wie das Kampf ausgegangen ist, verwertet werden. Diese Information entscheiet darüber, wie der backToAdventure-Button reagiert.
     }
 }

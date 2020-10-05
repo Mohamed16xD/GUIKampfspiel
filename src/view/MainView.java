@@ -11,6 +11,7 @@ public class MainView extends JFrame {
     // Referenzen
     private MainController mainController;
     private JPanel startPanel, fightPanel, adventurePanel;
+    private FightPanelHandler fightPanelHandler;
 
     /**
      * Konstruktor
@@ -21,7 +22,8 @@ public class MainView extends JFrame {
 
         this.mainController = mainController;
         this.startPanel = new StartPanelHandler(this).getPanel();
-        this.fightPanel = new FightPanelHandler(mainController, this).getPanel();
+        this.fightPanelHandler = new FightPanelHandler(mainController, this);
+        this.fightPanel = fightPanelHandler.getPanel();
         this.adventurePanel = new AdventurePanelHandler(this).getPanel();
 
 
@@ -37,12 +39,14 @@ public class MainView extends JFrame {
     }
 
     public void startGame(String name, boolean isSubmarine) {
-        //mainController.createPlayer(name, isSubmarine);
+        mainController.createNewWaterCraft(name, !isSubmarine);
 
         this.getContentPane().removeAll();
         this.getContentPane().invalidate();
 
-        this.getContentPane().add(fightPanel); //fightPanel wird aufgerufen
+        fightPanelHandler.startPanel();
+
+        this.getContentPane().add(fightPanel);
         this.getContentPane().revalidate();
     }
 
