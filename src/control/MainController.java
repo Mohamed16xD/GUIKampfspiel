@@ -40,15 +40,24 @@ public class MainController {
 
     public String createNewMonster(int level) {
 
-        int random = (int) (Math.random());
+        double random = Math.random();
+        if(random < 0.5){
+            monster = new Fish("Blub",player.getLevel());
+        }else{
+            monster = new Mammal("Delphine", player.getLevel());
+        }
 
-        return null;
+        return "Ein neues Monster... Kämpfe oder Fliehe!" ;
     }
 
     public String[] getMonsterInfos() {
-
-        return null;
-
+        String[] m = new String[5];
+        m[0] = String.valueOf(monster.getName());
+        m[1] = String.valueOf(monster.getFightPower());
+        m[2] = String.valueOf(monster.getFollowPower(true));
+        m[3] = String.valueOf(monster.getDefense());
+        m[4] = String.valueOf(monster.getLevel());
+        return m;
     }
 
         public String fight () {
@@ -63,8 +72,16 @@ public class MainController {
 
 
     public String flee(){
+        if(player.getFleePower() > monster.getFollowPower(true)){
 
-        return null;
+           createNewMonster(monster.getLevel()+1);
+
+           return "Du bist erfolgreich geflohen"+ createNewMonster(monster.getLevel());
+
+    }
+    else {
+            return "Du hast verloren!";
+        }
 
     }
 
