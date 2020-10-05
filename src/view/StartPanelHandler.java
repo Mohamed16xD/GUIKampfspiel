@@ -33,6 +33,8 @@ public class StartPanelHandler {
         submarineLabel.setText("Submarine");
         boatLabel.setText("Boat");
         buttonStart.setText("Starten");
+        radioButton1.setText("");
+        radioButton2.setText("");
 
 
         buttonStart.addActionListener(new ActionListener() {
@@ -42,6 +44,8 @@ public class StartPanelHandler {
             }
         });
     }
+
+
 
     private void start(){
         mainView.startGame(nameField.getText(), radioButton1.isSelected());

@@ -1,5 +1,6 @@
 package view;
 
+import view.MainView;
 import control.MainController;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -21,12 +22,14 @@ public class FightPanelHandler {
     private JButton backToAdventure;
     private MainView mainView;
     private MainController mainController;
+    private int a;
+
+
 
     public FightPanelHandler(MainController mainController, MainView mainView) {
         createButtons();
         this.mainController = mainController;
         this.mainView = mainView;
-
         updateGUI();
 
     }
@@ -51,13 +54,32 @@ public class FightPanelHandler {
         backToAdventure.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+
                 //TODO Reaktion auf Kampfende implementieren
             }
         });
     }
 
+    private void createEnemy(){ //zufällige Gegnerart
+        Math.random();
+        if(Math.random()<0.5){
+            monsterName.setText("Mammal");
+            monsterHealth.setText("100");
+            monsterLevel.setText("1");
+        }
+
+        if(Math.random()>=0.5){
+            monsterName.setText("Fish");
+            monsterHealth.setText("100");
+            monsterLevel.setText("1");
+
+        }
+
+    }
+
     private void fight(){
-        updateGUI();
+        //playerFightPowerAbove - monsterHealth;
+        //playerFightPowerBelow - monsterHealth;
     }
 
     private void flee(){
@@ -68,6 +90,15 @@ public class FightPanelHandler {
         //TODO Statistiken darstellen, falls noch keine der Lebenspunkte auf 0 gesunken ist.
         //TODO Falls Lebenspunkte bei Monster oder Spieler auf 0, dann muss die Methode endPanel() aufgerufen werden.
         endPanel();
+        createEnemy();
+    }
+
+    private boolean isBoat(){
+        return true;     //TODO Bestimmen, ob man ein Boat oder ein Submarine ist, um so die Angriffskräfte von Mammal & Fish zu bestimmen
+    }
+
+    private void takeDamage(){
+        updateGUI();     //TODO Hier ist es wichtig zu wissen, ob man ein Boat oder ein Submarine ist, und gegen welche Gegnerart man kämpft.
     }
 
     private void startPanel(){
