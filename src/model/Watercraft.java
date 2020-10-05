@@ -1,8 +1,5 @@
 package model;
 
-import control.MainController;
-import javafx.scene.paint.Stop;
-
 public abstract class Watercraft extends OceanObject {
 
     private int currentXP;
@@ -25,10 +22,16 @@ public abstract class Watercraft extends OceanObject {
 
     public void gainXP(int amount){
         currentXP = amount + currentXP;
-        if (currentXP > 5){
+        if (currentXP > 10){
+
             gainLevel();
+            currentXP = currentXP/10;
+
         }
+
+
         //TODO Weitere XP-Grenzen hinzufügen und darauf achten, dass man nicht zu schnell in der Erfahrung steigt.
+
     }
 
     public abstract void gainLevel();
