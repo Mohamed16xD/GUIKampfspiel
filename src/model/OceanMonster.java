@@ -1,5 +1,8 @@
 package model;
-abstract class OceanMonster extends OceanObject{
+
+
+
+public abstract class OceanMonster extends OceanObject{
 
     protected int followPowerAbove;
     protected int followPowerBelow;
