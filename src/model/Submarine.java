@@ -10,6 +10,7 @@ public class Submarine extends Watercraft{
     public int getFightPower() {
         return fightPowerAbove + 2 * fightPowerBelow;
     }
+
     public void gainLevel(){
         fightPowerBelow = fightPowerBelow + 2;
         fightPowerAbove++;

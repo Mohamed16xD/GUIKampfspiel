@@ -6,4 +6,6 @@ public class MainProgram {
     public static void main(String[] args){
         MainView mainView = new MainView(new MainController());
     }
+
+    //TODO Methoden kommentieren.
 }

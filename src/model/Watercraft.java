@@ -22,11 +22,13 @@ public abstract class Watercraft extends OceanObject {
     public int getFleePower() {
         return fleePower;
     }
+
     public void gainXP(int amount){
         currentXP = amount + currentXP;
         if (currentXP > 5){
             gainLevel();
         }
+        //TODO Weitere XP-Grenzen hinzufügen und darauf achten, dass man nicht zu schnell in der Erfahrung steigt.
     }
 
     public abstract void gainLevel();

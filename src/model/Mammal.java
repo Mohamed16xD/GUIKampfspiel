@@ -3,6 +3,7 @@ package model;
 public class Mammal extends OceanMonster{
     public Mammal(String name, int level ) {
         super(name);
+        this.level = level;
         int random = (int) (Math.random() * 2 + (level - 1));
         fightPowerAbove = 1 * random;
         random = (int) (Math.random() * 2 + (level - 1));

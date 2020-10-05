@@ -56,35 +56,29 @@ public class FightPanelHandler {
     }
 
     private void fight(){
-        //TODO Entsprechende Methode vom MainController aufrufen und Ergebnisse in der GUi darstellen. Anschließend die Stats der Kämfper in der GUI aktualisieren.
         String result = mainController.fight();
+        fightInfo.setText(fightInfo.getText() + "\n");
+        fightInfo.setText(fightInfo.getText() + result);
         if(result.equals("Du hast verloren!")){
-            fightInfo.setText(fightInfo.getText() + "\n");
-            fightInfo.setText(fightInfo.getText() + result);
             endPanel();
         }else{
-            fightInfo.setText(fightInfo.getText() + "\n");
-            fightInfo.setText(fightInfo.getText() + result);
             updateGUI();
         }
     }
 
     private void flee(){
-        //TODO Entsprechende Methode vom MainController aufrufen und Ergebnisse in der GUi darstellen. Anschließend die Stats der Kämfper in der GUI aktualisieren.
         String result = mainController.fight();
+        fightInfo.setText(fightInfo.getText() + "\n");
+        fightInfo.setText(fightInfo.getText() + result);
         if(result.equals("Du hast verloren!")){
-            fightInfo.setText(fightInfo.getText() + "\n");
-            fightInfo.setText(fightInfo.getText() + result);
             endPanel();
         }else{
-            fightInfo.setText(fightInfo.getText() + "\n");
-            fightInfo.setText(fightInfo.getText() + result);
             updateGUI();
         }
     }
 
     private void updateGUI(){
-        //TODO Statistiken darstellen und aktualisieren.
+        //TODO Überprüfen, ob die richtigen Statistiken an die richtigen Labels gesendet werden.
         String[] monsterStats = mainController.getMonsterInfos();
         monsterName.setText(monsterStats[0]);
         monsterHealth.setText(monsterStats[3]);
