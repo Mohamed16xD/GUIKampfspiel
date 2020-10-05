@@ -51,7 +51,7 @@ public class FightPanelHandler {
         backToAdventure.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
+                //TODO Reaktion auf Kampfende implementieren
             }
         });
     }
@@ -65,6 +65,8 @@ public class FightPanelHandler {
     }
 
     private void updateGUI(){
+        //TODO Statistiken darstellen, falls noch keine der Lebenspunkte auf 0 gesunken ist.
+        //TODO Falls Lebenspunkte bei Monster oder Spieler auf 0, dann muss die Methode endPanel() aufgerufen werden.
         endPanel();
     }
 
@@ -78,5 +80,6 @@ public class FightPanelHandler {
         fightButton.setEnabled(false);
         fleeButton.setEnabled(false);
         backToAdventure.setVisible(true);
+        //TODO Irgendwie muss die Information, wie das Kampf ausgegangen ist, verwertet werden. Diese Information entscheiet darüber, wie der backToAdventure-Button reagiert.
     }
 }
