@@ -57,29 +57,47 @@ public class FightPanelHandler {
     }
 
     private void fight(){
+        //TODO Entsprechende Methode vom MainController aufrufen und Ergebnisse in der GUi darstellen. Anschließend die Stats der Kämfper in der GUI aktualisieren.
         updateGUI();
     }
 
     private void flee(){
+        //TODO Entsprechende Methode vom MainController aufrufen und Ergebnisse in der GUi darstellen. Anschließend die Stats der Kämfper in der GUI aktualisieren.
         updateGUI();
     }
 
     private void updateGUI(){
-        //TODO Statistiken darstellen, falls noch keine der Lebenspunkte auf 0 gesunken ist.
+        //TODO Statistiken darstellen aktualisieren.
+        String[] monsterStats = mainController.getMonsterInfos();
+        monsterName.setText(monsterStats[0]);
+        String[] playerStats = mainController.getWatercraftInfos();
+        playerName.setText(playerStats[0]);
+
+
         //TODO Falls Lebenspunkte bei Monster oder Spieler auf 0, dann muss die Methode endPanel() aufgerufen werden.
         endPanel();
     }
 
+    /**
+     * Methode wird beim Starten eines Kampfes aufgerufen.
+     * Die Knöpfe erhalten den passenden Zustand, die Labels werden aktualisiert.
+     */
     private void startPanel(){
         fightButton.setEnabled(true);
         fleeButton.setEnabled(true);
         backToAdventure.setVisible(false);
+        updateGUI();
     }
 
+    /**
+     * Methode wird nach dem Abschluss eines Kampfes oder eines Fluchtversuches aufgerufen.
+     * Die Knöpfen erhalten den passenden Zustand, die Labels werden aktualisiert.
+     */
     private void endPanel(){
         fightButton.setEnabled(false);
         fleeButton.setEnabled(false);
         backToAdventure.setVisible(true);
+        updateGUI();
         //TODO Irgendwie muss die Information, wie das Kampf ausgegangen ist, verwertet werden. Diese Information entscheiet darüber, wie der backToAdventure-Button reagiert.
     }
 }
