@@ -28,8 +28,6 @@ public class FightPanelHandler {
         this.mainView = mainView;
 
         fightInfo.setText("Oh mein Gott, ein Monster des Ozeans! \nKämpfe, oder Fliehe!");
-        updateGUI();
-
     }
 
     public JPanel getPanel(){
@@ -95,7 +93,7 @@ public class FightPanelHandler {
         String[] playerStats = mainController.getWatercraftInfos();
         playerName.setText(playerStats[0]);
         playerHealth.setText(playerStats[3]);
-        playerLevel.setText(playerStats[4]);
+        playerLevel.setText(playerStats[5]);
         playerPower.setText(playerStats[1]);
     }
 

@@ -13,15 +13,10 @@ public class MainController {
 
     public void createNewWaterCraft(String name, boolean boat) {
         if (boat == true) {
-
             player = new Boat(name);
-
         } else {
-
             player = new Submarine(name);
-
         }
-
     }
 
 
@@ -39,7 +34,6 @@ public class MainController {
     }
 
     public String createNewMonster(int level) {
-
         double random = Math.random();
         if(random < 0.5){
             monster = new Fish("Blub",player.getLevel());

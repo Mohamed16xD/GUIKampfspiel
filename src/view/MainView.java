@@ -40,6 +40,7 @@ public class MainView extends JFrame {
 
     public void startGame(String name, boolean isSubmarine) {
         mainController.createNewWaterCraft(name, !isSubmarine);
+        mainController.createNewMonster(1);
 
         this.getContentPane().removeAll();
         this.getContentPane().invalidate();
