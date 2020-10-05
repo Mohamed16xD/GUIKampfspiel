@@ -1,6 +1,5 @@
 package view;
 
-import view.MainView;
 import control.MainController;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -22,14 +21,12 @@ public class FightPanelHandler {
     private JButton backToAdventure;
     private MainView mainView;
     private MainController mainController;
-    private int a;
-
-
 
     public FightPanelHandler(MainController mainController, MainView mainView) {
         createButtons();
         this.mainController = mainController;
         this.mainView = mainView;
+
         updateGUI();
 
     }
@@ -54,63 +51,53 @@ public class FightPanelHandler {
         backToAdventure.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
                 //TODO Reaktion auf Kampfende implementieren
             }
         });
     }
 
-    private void createEnemy(){ //zufällige Gegnerart
-        Math.random();
-        if(Math.random()<0.5){
-            monsterName.setText("Mammal");
-            monsterHealth.setText("100");
-            monsterLevel.setText("1");
-        }
-
-        if(Math.random()>=0.5){
-            monsterName.setText("Fish");
-            monsterHealth.setText("100");
-            monsterLevel.setText("1");
-
-        }
-
-    }
-
     private void fight(){
-        //playerFightPowerAbove - monsterHealth;
-        //playerFightPowerBelow - monsterHealth;
+        //TODO Entsprechende Methode vom MainController aufrufen und Ergebnisse in der GUi darstellen. Anschließend die Stats der Kämfper in der GUI aktualisieren.
+        updateGUI();
     }
 
     private void flee(){
+        //TODO Entsprechende Methode vom MainController aufrufen und Ergebnisse in der GUi darstellen. Anschließend die Stats der Kämfper in der GUI aktualisieren.
         updateGUI();
     }
 
     private void updateGUI(){
-        //TODO Statistiken darstellen, falls noch keine der Lebenspunkte auf 0 gesunken ist.
+        //TODO Statistiken darstellen aktualisieren.
+        String[] monsterStats = mainController.getMonsterInfos();
+        monsterName.setText(monsterStats[0]);
+        String[] playerStats = mainController.getWatercraftInfos();
+        playerName.setText(playerStats[0]);
+
+
         //TODO Falls Lebenspunkte bei Monster oder Spieler auf 0, dann muss die Methode endPanel() aufgerufen werden.
         endPanel();
-        createEnemy();
     }
 
-    private boolean isBoat(){
-        return true;     //TODO Bestimmen, ob man ein Boat oder ein Submarine ist, um so die Angriffskräfte von Mammal & Fish zu bestimmen
-    }
-
-    private void takeDamage(){
-        updateGUI();     //TODO Hier ist es wichtig zu wissen, ob man ein Boat oder ein Submarine ist, und gegen welche Gegnerart man kämpft.
-    }
-
+    /**
+     * Methode wird beim Starten eines Kampfes aufgerufen.
+     * Die Knöpfe erhalten den passenden Zustand, die Labels werden aktualisiert.
+     */
     private void startPanel(){
         fightButton.setEnabled(true);
         fleeButton.setEnabled(true);
         backToAdventure.setVisible(false);
+        updateGUI();
     }
 
+    /**
+     * Methode wird nach dem Abschluss eines Kampfes oder eines Fluchtversuches aufgerufen.
+     * Die Knöpfen erhalten den passenden Zustand, die Labels werden aktualisiert.
+     */
     private void endPanel(){
         fightButton.setEnabled(false);
         fleeButton.setEnabled(false);
         backToAdventure.setVisible(true);
+        updateGUI();
         //TODO Irgendwie muss die Information, wie das Kampf ausgegangen ist, verwertet werden. Diese Information entscheiet darüber, wie der backToAdventure-Button reagiert.
     }
 }

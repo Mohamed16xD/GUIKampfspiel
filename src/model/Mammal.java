@@ -1,6 +1,6 @@
 package model;
 
-public abstract class Mammal extends OceanMonster{
+public class Mammal extends OceanMonster{
     public Mammal(String name, int level ) {
         super(name);
         int random = (int) (Math.random() * 2 + (level - 1));
@@ -14,12 +14,9 @@ public abstract class Mammal extends OceanMonster{
         random = (int) (Math.random() * 2 + (level - 1));
         followPowerBelow = (int) 1.5 * random;
     }
-    public int getFightPower(Boolean isBoat){
-        if(isBoat == true){
-            return fightPowerAbove;
-        }else{
-            return fightPowerBelow*2;
-        }
+
+    public int getFightPower(){
+        return 2*fightPowerAbove+fightPowerBelow;
     }
 
 }
