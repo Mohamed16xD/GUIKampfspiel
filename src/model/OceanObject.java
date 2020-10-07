@@ -9,6 +9,10 @@ public abstract class OceanObject {
     protected int defense;
     protected int level;
 
+    /**
+     * Der Parameter n wird von der Klasse Watercraft entnommen und name bekommt den Parameter n zugeschrieben.
+     * @param n
+     */
     public OceanObject(String n){
         name = n;
     }
