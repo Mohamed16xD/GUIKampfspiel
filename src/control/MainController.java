@@ -63,9 +63,9 @@ public class MainController {
 
     public String flee(){
         //TODO Hier ist ein Fehler. So wird festgelegt, dass der Spieler IMMER ein Boat ist. Bitte im Internet nachschauen, wie man die Klasse eines Objekts ermittelt (Stichwort: instanceOf).
-        if(player.getFleePower() > monster.getFollowPower(monster instanceof OceanObject)){
+        if(player.getFleePower() > monster.getFollowPower(player instanceof Watercraft)){
             //TODO Ein weiterer Fehler. Es muss immer das Player-Level genutzt werden, um ein Monster zu erhalten.
-           createNewMonster(monster.getLevel()+1);
+           createNewMonster(player.getLevel()+1);
            return "Du bist erfolgreich geflohen. "+ createNewMonster(monster.getLevel());
         } else {
             return "Du hast verloren!";
