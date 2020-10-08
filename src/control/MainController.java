@@ -23,6 +23,8 @@ public class MainController {
         }
     }
 
+    /** Eine Methode um Werte von Player aufzurufen
+     */
     public String[] getWatercraftInfos() {
         String[] s = new String[6];
 
@@ -36,6 +38,9 @@ public class MainController {
         return s;
     }
 
+    /** Mit der Math random Methode wird entschieden ob es ein Fish oder Mammal wird gegen dem man kämpfen oder fliehen wird. unter 0,5 wird es ein Fish
+     * ansonsten ein Mammal
+     */
     public String createNewMonster(int level) {
         double random = Math.random();
         if(random < 0.5){
@@ -47,6 +52,8 @@ public class MainController {
         return "Ein neues Monster... Kämpfe oder Fliehe!" ;
     }
 
+    /** Eine Methode um Werte vom Monster aufzurufen
+     */
     public String[] getMonsterInfos() {
         String[] m = new String[5];
         m[0] = String.valueOf(monster.getName());
@@ -57,6 +64,9 @@ public class MainController {
         return m;
     }
 
+    /** Wenn der Spieler sich entscheidet zu kämpfen dann wird die Methode fight aufgerufen und es wird berechnet
+     * ob die FightPower vom Player größer ist als die vom Monster damit man gewinnt ansonsten verliert man
+     */
     public String fight () {
         if (monster.getFightPower() < player.getFightPower()) {
             player.gainXP(monster.getFightPower());
@@ -65,6 +75,8 @@ public class MainController {
         return "Du hast verloren!";
     }
 
+    /**
+     */
     public String flee(){
         //TODO Hier ist ein Fehler. So wird festgelegt, dass der Spieler IMMER ein Boat ist. Bitte im Internet nachschauen, wie man die Klasse eines Objekts ermittelt (Stichwort: instanceOf).
         if(player.getFleePower() > monster.getFollowPower(monster instanceof OceanObject)){
