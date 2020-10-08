@@ -3,7 +3,9 @@ import model.*;
 import view.MainView;
 
 public class MainController {
-
+    /**
+     * 2 Referenzen werden erstellt: Player und Monster
+     */
     private Watercraft player;
     public OceanMonster monster;
 
@@ -11,6 +13,8 @@ public class MainController {
         //TODO Spielende programmieren. Dies erfordert Anpassungen am MainController und am FightPanel.
     }
 
+    /** Wenn Boat ausgewählt wurde dann wird ein Boat Objekt erstellt ansonsten ein Submarine ( unter der Referenz Player)
+     */
     public void createNewWaterCraft(String name, boolean boat) {
         if (boat == true) {
             player = new Boat(name);
@@ -65,7 +69,7 @@ public class MainController {
         //TODO Hier ist ein Fehler. So wird festgelegt, dass der Spieler IMMER ein Boat ist. Bitte im Internet nachschauen, wie man die Klasse eines Objekts ermittelt (Stichwort: instanceOf).
         if(player.getFleePower() > monster.getFollowPower(monster instanceof OceanObject)){
             //TODO Ein weiterer Fehler. Es muss immer das Player-Level genutzt werden, um ein Monster zu erhalten.
-           createNewMonster(monster.getLevel()+1);
+           createNewMonster(player.getLevel()+1);
            return "Du bist erfolgreich geflohen. "+ createNewMonster(monster.getLevel());
         } else {
             return "Du hast verloren!";
