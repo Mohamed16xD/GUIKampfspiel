@@ -43,7 +43,7 @@ public abstract class Watercraft extends OceanObject {
 
 
 
-        //TODO Weitere XP-Grenzen hinzufügen und darauf achten, dass man nicht zu schnell in der Erfahrung steigt.
+
 
     }
 

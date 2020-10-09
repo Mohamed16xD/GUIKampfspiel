@@ -12,7 +12,7 @@ public class MainController {
     public MainController() {
 
 
-        //TODO Spielende programmieren. Dies erfordert Anpassungen am MainController und am FightPanel.
+
     }
 
     /** Wenn Boat ausgewählt wurde dann wird ein Boat Objekt erstellt ansonsten ein Submarine ( unter der Referenz Player)
@@ -60,9 +60,9 @@ public class MainController {
         String[] m = new String[5];
         m[0] = String.valueOf(monster.getName());
         m[1] = String.valueOf(monster.getFightPower());
-        m[2] = String.valueOf(monster.getFollowPower(monster instanceof OceanObject));
+        m[2] = String.valueOf(monster.getFollowPower(player instanceof Watercraft));
         m[3] = String.valueOf(monster.getDefense());
-        m[4] = String.valueOf(monster.getLevel());
+        m[4] = String.valueOf(player.getLevel());
         return m;
     }
 
@@ -78,11 +78,13 @@ public class MainController {
     }
 
     /**
+     *  Wenn FleePower von Player größer ist als die FollowPower von Monster dann wird "Du bist erfolgreich geflohen ausgegeben."
+     *  und der Player Level steigt um 1. Ansonsten verliert man "Du hast verloren!".
      */
     public String flee(){
-        //TODO Hier ist ein Fehler. So wird festgelegt, dass der Spieler IMMER ein Boat ist. Bitte im Internet nachschauen, wie man die Klasse eines Objekts ermittelt (Stichwort: instanceOf).
+
         if(player.getFleePower() > monster.getFollowPower(monster instanceof OceanObject)){
-            //TODO Ein weiterer Fehler. Es muss immer das Player-Level genutzt werden, um ein Monster zu erhalten.
+
            createNewMonster(player.getLevel()+1);
            return "Du bist erfolgreich geflohen. "+ createNewMonster(monster.getLevel());
         } else {

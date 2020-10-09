@@ -7,5 +7,5 @@ public class  MainProgram {
         MainView mainView = new MainView(new MainController());
     }
 
-    //TODO Methoden kommentieren.
+
 }

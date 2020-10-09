@@ -50,7 +50,7 @@ public class FightPanelHandler {
         backToAdventure.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                //TODO Reaktion auf Kampfende implementieren
+
             }
         });
     }
@@ -78,7 +78,7 @@ public class FightPanelHandler {
     }
 
     private void updateGUI(){
-        //TODO Überprüfen, ob die richtigen Statistiken an die richtigen Labels gesendet werden.
+
         String[] monsterStats = mainController.getMonsterInfos();
         monsterName.setText(monsterStats[0]);
         monsterHealth.setText(monsterStats[3]);
