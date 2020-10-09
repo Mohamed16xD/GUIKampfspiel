@@ -10,6 +10,8 @@ public class MainController {
     public OceanMonster monster;
 
     public MainController() {
+
+
         //TODO Spielende programmieren. Dies erfordert Anpassungen am MainController und am FightPanel.
     }
 
@@ -58,7 +60,7 @@ public class MainController {
         String[] m = new String[5];
         m[0] = String.valueOf(monster.getName());
         m[1] = String.valueOf(monster.getFightPower());
-        m[2] = String.valueOf(monster.getFollowPower(true));
+        m[2] = String.valueOf(monster.getFollowPower(monster instanceof OceanObject));
         m[3] = String.valueOf(monster.getDefense());
         m[4] = String.valueOf(monster.getLevel());
         return m;
